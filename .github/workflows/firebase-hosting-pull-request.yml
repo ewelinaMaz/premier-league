@@ -12,6 +12,6 @@ jobs:
       - run: ng build --prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          repoToken: '${{ secrets.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 }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PREMIER_LEAGUE_B3C9B }}'
           projectId: premier-league-b3c9b
