@@ -1,0 +1,10 @@
+.text {
+  font-family:'Montserrat', sans-serif;
+}
+@media (max-width: 880px) {
+  .text {
+    font-size: 12px;
+    width: 40%;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="component">
+  <div class="row justify-content-center">
+    <div class="col-9 col-md-10 col-sm-12">
+      <form class="form">
+        <div class="form-group form-inline">
+          Club search: <input class="form-control ml-2" type="text" [formControl]="textSearch"/>
+        </div>
+      </form>
+      <table class="m-auto table table-striped">
+        <thead class="text-center">
+          <tr>
+            <th scope="col">Position</th>
+            <th scope="col">Team</th>
+            <th scope="col">Team Logo</th>
+            <th scope="col">Abbreviation</th>
+            <th scope="col">Points</th>
+            <th scope="col">Wins</th>
+            <th scope="col">Looses</th>
+            <th scope="col">Draws</th>
+            <th scope="col">Goals</th>
+            <th scope="col">Lost Goals</th>
+            <th scope="col">Difference</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let teamsList of teams">
+            <th scope="row">{{ teamsList.stats[8].value }}</th>
+            <td>
+              <ngb-highlight [result]="teamsList.team.name" [term]="textSearch.value"></ngb-highlight>
+            </td>
+            <td>
+              <img
+                class="logo"
+                src="{{ teamsList.team.logos[0].href }}"
+                alt="{{ teamsList.team.name }}"
+              />
+            </td>
+            <td>{{ teamsList.team.abbreviation }}</td>
+            <td>
+              <ngb-highlight [result]="teamsList.stats[6].value | number" [term]="textSearch.value"></ngb-highlight>
+            </td>
+            <td>{{ teamsList.stats[0].value }}</td>
+            <td>{{ teamsList.stats[1].value }}</td>
+            <td>{{ teamsList.stats[2].value }}</td>
+            <td>{{ teamsList.stats[4].value }}</td>
+            <td>{{ teamsList.stats[5].value }}</td>
+            <td>{{ teamsList.stats[9].value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

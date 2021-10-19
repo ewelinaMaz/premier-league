@@ -1,0 +1,11 @@
+<div class="News">
+  <div class="Newscard" *ngFor="let new of news">
+    <h1 class="Newscard-title">
+      {{ new.title }}
+    </h1>
+    <div class="Newscard-img">
+      <img src="{{ new.image }}" alt="{{ new.title }}" />
+    </div>
+    <div class="Newscard-data">{{ new.description }}</div>
+  </div>
+</div>
