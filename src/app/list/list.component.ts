@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Data } from '../interface/data';
-import { ListService } from './list.service';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +8,11 @@ import { ListService } from './list.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  listService: ListService;
   table: Data | any;
   teamsName: any;
   private activatedRoute: ActivatedRoute;
 
-  constructor(listService: ListService, activatedRoute: ActivatedRoute) {
-    this.listService = listService;
+  constructor( activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;
     this.table = this.table;
   }

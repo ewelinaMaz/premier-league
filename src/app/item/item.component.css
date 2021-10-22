@@ -5,10 +5,10 @@
 .form {
   width: 40%;
   margin-bottom: 3rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .table {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media (max-width: 920px) {
@@ -27,4 +27,3 @@
     font-size: 12px;
   }
 }
-

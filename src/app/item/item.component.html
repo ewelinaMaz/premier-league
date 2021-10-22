@@ -3,7 +3,12 @@
     <div class="col-9 col-md-10 col-sm-12">
       <form class="form">
         <div class="form-group form-inline">
-          Club search: <input class="form-control ml-2" type="text" [formControl]="textSearch"/>
+          Club search:
+          <input
+            class="form-control ml-2"
+            type="text"
+            [formControl]="textSearch"
+          />
         </div>
       </form>
       <table class="m-auto table table-striped">
@@ -23,10 +28,13 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <tr *ngFor="let teamsList of teams">
+          <tr *ngFor="let teamsList of table$ | async">
             <th scope="row">{{ teamsList.stats[8].value }}</th>
             <td>
-              <ngb-highlight [result]="teamsList.team.name" [term]="textSearch.value"></ngb-highlight>
+              <ngb-highlight
+                [result]="teamsList.team.name"
+                [term]="textSearch.value"
+              ></ngb-highlight>
             </td>
             <td>
               <img
@@ -37,7 +45,10 @@
             </td>
             <td>{{ teamsList.team.abbreviation }}</td>
             <td>
-              <ngb-highlight [result]="teamsList.stats[6].value | number" [term]="textSearch.value"></ngb-highlight>
+              <ngb-highlight
+                [result]="teamsList.stats[6].value | number"
+                [term]="textSearch.value"
+              ></ngb-highlight>
             </td>
             <td>{{ teamsList.stats[0].value }}</td>
             <td>{{ teamsList.stats[1].value }}</td>
