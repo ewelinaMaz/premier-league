@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
   teamsName: any;
   private activatedRoute: ActivatedRoute;
 
-  constructor( activatedRoute: ActivatedRoute) {
+  constructor(activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;
     this.table = this.table;
   }
@@ -28,5 +28,3 @@ export class ListComponent implements OnInit {
     this.showList();
   }
 }
-
-

@@ -1,10 +1,9 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
+import { Component, Input, OnInit, PipeTransform } from '@angular/core';
 import { Standing } from '../interface/standing';
 import { DecimalPipe } from '@angular/common';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -13,17 +12,15 @@ import { ActivatedRoute } from '@angular/router';
   providers: [DecimalPipe],
 })
 export class ItemComponent implements OnInit {
+  @Input()
+  teams: Standing[] = [];
   table$: Observable<Standing[]> | any;
   textSearch = new FormControl('');
-  table!: Standing[];
   teamsList!: Standing[];
-  private activatedRoute: ActivatedRoute;
 
-  constructor(pipe: DecimalPipe, activatedRoute: ActivatedRoute) {
-    this.activatedRoute = activatedRoute;
-
+  constructor(pipe: DecimalPipe) {
     const search = (text: string, _pipe: PipeTransform) =>
-      this.table.filter((teamsList) => {
+      this.teams.filter((teamsList) => {
         const term = text.toLowerCase();
         return (
           teamsList.team.name.toLowerCase().includes(term) ||
@@ -37,14 +34,5 @@ export class ItemComponent implements OnInit {
     );
   }
 
-  showList() {
-    this.activatedRoute.data.subscribe((data) => {
-      this.table = data.res.data.standings;
-      return this.table;
-    });
-  }
-
-  ngOnInit(): void {
-    this.showList();
-  }
+  ngOnInit(): void {}
 }

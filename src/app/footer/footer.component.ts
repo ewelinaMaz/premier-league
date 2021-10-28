@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   myDate: any = new Date();
 
   constructor(public datePipe: DatePipe) {
-    this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    this.myDate = this.datePipe.transform(this.myDate, 'dd-MM-yyyy, hh:mm');
   }
 
   ngOnInit(): void {}
